@@ -2,7 +2,7 @@ import { validate } from 'js-validation-check';
 import { Response } from 'express';
 
 import { encryptPassword } from '../../utils/passwordHelper';
-// import { IUser } from '../../../shared/Types';
+import { IUser } from '../../../shared/Types';
 import { userConfig } from '../../utils/config';
 import { usersModel } from '../../models';
 
@@ -12,7 +12,7 @@ import { usersModel } from '../../models';
  */
 export const signUp = async (req, res: Response) => {
   // first validate iuser input
-  const { username, password, email } = req.body;
+  const { username, password, email } = req.body as IUser;
   const errors = validate({ username, password, email }, userConfig);
   if (errors.length !== 0) return res.status(401).json({
     status: false,

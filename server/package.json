@@ -4,21 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsc-watch --onSuccess \"cross-env NODE_ENV=development nodemon build/app.js .\""
+    "dev": "tsc-watch --onSuccess \"cross-env NODE_ENV=development nodemon build/server/app.js .\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
+    "bcryptjs": "2.4.3",
     "cross-env": "5.2.0",
     "express": "4.16.3",
-    "js-validation-check": "^1.0.9",
+    "js-validation-check": "1.0.9",
     "jsonwebtoken": "8.3.0",
     "mongoose": "5.1.6"
   },
   "devDependencies": {
-    "@types/bcryptjs": "^2.4.1",
+    "@types/bcryptjs": "2.4.1",
     "@types/express": "4.16.0",
     "@types/jsonwebtoken": "7.2.8",
     "@types/mongoose": "5.2.6",

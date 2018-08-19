@@ -1,15 +1,16 @@
 import { Request, Response } from 'express';
 import { usersModel } from '../../models';
 import { checkPassword } from '../../utils/passwordHelper';
+import { IUser } from '../../../shared/Types';
 
 export const login = async (req: Request, res: Response) => {
     const { username, password } = req.body;
-    const userData = await usersModel.find({ username }) as any;
+    const userData = await usersModel.find({ username }) as IUser[];
     if (userData.length === 0) return res.status(403).send('username is wrong');
     const isPassValid = await checkPassword(password, userData[0].hashPassword);
     if (!isPassValid) return res.json({
         status: false,
         message: 'check username password'
     });
-    res.json({ userData: userData[0] });
+    res.json({ userData: userData });
 }
